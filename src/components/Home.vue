@@ -1,4 +1,41 @@
 <template>
+    <Transition enter-active-class="transition-opacity duration-500" enter-from-class="opacity-100"
+        enter-to-class="opacity-0" leave-active-class="transition-opacity duration-500" leave-from-class="opacity-100"
+        leave-to-class="opacity-0">
+        <div v-if="isLoading" class="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950">
+
+            <!-- Background Glow -->
+            <div class="absolute h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl"></div>
+
+            <!-- Loader Content -->
+            <div class="relative flex flex-col items-center">
+
+                <!-- Logo -->
+                <div class="text-5xl font-bold tracking-tight text-white sm:text-6xl">
+                    K<span class="text-cyan-400">.....</span>
+                </div>
+
+                <!-- Name -->
+                <p class="mt-4 text-xs font-medium uppercase tracking-[0.4em] text-slate-500">
+                    Kaveesha
+                </p>
+
+                <!-- Loading Bar -->
+                <div class="mt-8 h-[2px] w-40 overflow-hidden rounded-full bg-white/10">
+                    <div class="h-full w-full origin-left animate-[loading_1.5s_ease-in-out_forwards] bg-cyan-400">
+                    </div>
+                </div>
+
+                <!-- Loading Text -->
+                <p class="mt-4 text-xs text-slate-600">
+                    Loading portfolio...
+                </p>
+
+            </div>
+
+        </div>
+    </Transition>
+
     <div class="min-h-screen bg-slate-950 text-white">
 
         <!-- NAVBAR -->
@@ -569,8 +606,15 @@
 
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 const mobileMenuOpen = ref(false)
+const isLoading = ref(true)
+
+onMounted(() => {
+    setTimeout(() => {
+        isLoading.value = false
+    }, 1800)
+})
 
 import nativaImage from '../assets/nativa.png'
 import lndImage from '../assets/lnd.png'
