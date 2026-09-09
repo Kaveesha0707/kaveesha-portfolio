@@ -339,7 +339,7 @@
 
 
                         <!-- Download Button -->
-                        <a href="/Kaveesha-Godigamuwa-CV.pdf" download
+                        <a href="/My_Cv.pdf" download
                             class="group inline-flex shrink-0 items-center gap-3 rounded-full bg-cyan-400 px-7 py-3.5 font-semibold text-slate-950 transition duration-300 hover:-translate-y-1 hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-400/20">
 
                             <!-- Download Icon -->
